@@ -2,7 +2,10 @@
 
 
 class Step(object):
-    def __init__(self, inputs, outputs, name=None):
+    """
+    Base step definition for all steps
+    """
+    def __init__(self, inputs=None, outputs=None, name=None):
         if not name:
             self.name = self.__class__.__name__
         else:
@@ -14,7 +17,7 @@ class Step(object):
     def __repr__(self):
         return "%s".format(self.name)
 
-    def __call__(self):
+    def run(self):
         """
         Override this method for custom Steps
         :return: True if successful else False
